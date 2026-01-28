@@ -42,7 +42,7 @@ export const OfflineSlide = () => {
       </SlideTitle>
       
       <p className="text-center text-xl font-display text-foreground/80 mb-12">
-        The <span className="text-neon-green">Unkillable</span> Message System
+        The <span className="text-neon-green font-semibold">Unkillable</span> Message System
       </p>
       
       {/* Features Grid */}
@@ -51,13 +51,13 @@ export const OfflineSlide = () => {
           <div 
             key={idx}
             className={cn(
-              "p-6 rounded-xl bg-card/50 border border-border/50",
-              "hover:border-primary/50 hover:glow-cyan transition-all duration-300",
+              "p-6 rounded-2xl bg-card shadow-soft border border-border/50",
+              "hover:shadow-medium hover:border-primary/30 transition-all duration-300",
               "flex items-start gap-4"
             )}
           >
-            <div className="w-12 h-12 rounded-lg bg-dark-elevated border border-border flex items-center justify-center flex-shrink-0">
-              <feature.icon className="w-6 h-6 text-neon-cyan" />
+            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <feature.icon className="w-7 h-7 text-primary" />
             </div>
             <div>
               <h4 className="font-display font-semibold text-foreground mb-1">
@@ -72,9 +72,9 @@ export const OfflineSlide = () => {
       </div>
       
       {/* Result Banner */}
-      <div className="max-w-xl mx-auto p-6 rounded-2xl bg-gradient-to-r from-neon-green/10 to-neon-cyan/10 border border-neon-green/30">
+      <div className="max-w-xl mx-auto p-6 rounded-2xl bg-gradient-to-r from-neon-green/10 to-primary/10 border border-neon-green/20 shadow-soft">
         <div className="flex items-center justify-center gap-4">
-          <CheckCheck className="w-8 h-8 text-neon-green" />
+          <CheckCheck className="w-10 h-10 text-neon-green" />
           <div className="text-center">
             <p className="font-display text-2xl font-bold text-foreground">
               Delivery Rate: <span className="text-neon-green">&gt;99%</span>
@@ -84,13 +84,6 @@ export const OfflineSlide = () => {
             </p>
           </div>
         </div>
-      </div>
-      
-      {/* Animation visualization */}
-      <div className="mt-8 text-center">
-        <p className="text-sm text-muted-foreground italic">
-          💬 Message in a bottle → Floats across oceans → Finds recipient 📬
-        </p>
       </div>
     </SlideContainer>
   );

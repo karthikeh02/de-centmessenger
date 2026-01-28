@@ -17,7 +17,7 @@ export const NavigationDots = ({ total, current, onChange }: NavigationDotsProps
             "w-3 h-3 rounded-full transition-all duration-300",
             current === idx
               ? "bg-primary glow-cyan scale-125"
-              : "bg-muted hover:bg-primary/50"
+              : "bg-border hover:bg-primary/50"
           )}
           aria-label={`Go to slide ${idx + 1}`}
         />

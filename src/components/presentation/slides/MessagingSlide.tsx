@@ -29,9 +29,9 @@ export const MessagingSlide = () => {
       
       {/* How It Works */}
       <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-        <div className="p-6 rounded-xl bg-card/50 border border-border/50 text-center">
-          <div className="w-14 h-14 rounded-xl bg-dark-elevated border border-border mx-auto mb-4 flex items-center justify-center">
-            <Lock className="w-7 h-7 text-neon-cyan" />
+        <div className="p-6 rounded-2xl bg-card shadow-soft border border-border/50 text-center">
+          <div className="w-16 h-16 rounded-2xl bg-primary/10 mx-auto mb-4 flex items-center justify-center">
+            <Lock className="w-8 h-8 text-primary" />
           </div>
           <h4 className="font-display font-semibold text-foreground mb-2">Compose</h4>
           <p className="text-sm text-muted-foreground">
@@ -39,9 +39,9 @@ export const MessagingSlide = () => {
           </p>
         </div>
         
-        <div className="p-6 rounded-xl bg-card/50 border border-border/50 text-center">
-          <div className="w-14 h-14 rounded-xl bg-dark-elevated border border-border mx-auto mb-4 flex items-center justify-center">
-            <Zap className="w-7 h-7 text-neon-purple" />
+        <div className="p-6 rounded-2xl bg-card shadow-soft border border-border/50 text-center">
+          <div className="w-16 h-16 rounded-2xl bg-neon-purple/10 mx-auto mb-4 flex items-center justify-center">
+            <Zap className="w-8 h-8 text-neon-purple" />
           </div>
           <h4 className="font-display font-semibold text-foreground mb-2">Send</h4>
           <p className="text-sm text-muted-foreground">
@@ -50,9 +50,9 @@ export const MessagingSlide = () => {
           </p>
         </div>
         
-        <div className="p-6 rounded-xl bg-card/50 border border-border/50 text-center">
-          <div className="w-14 h-14 rounded-xl bg-dark-elevated border border-border mx-auto mb-4 flex items-center justify-center">
-            <WifiOff className="w-7 h-7 text-neon-green" />
+        <div className="p-6 rounded-2xl bg-card shadow-soft border border-border/50 text-center">
+          <div className="w-16 h-16 rounded-2xl bg-neon-green/10 mx-auto mb-4 flex items-center justify-center">
+            <WifiOff className="w-8 h-8 text-neon-green" />
           </div>
           <h4 className="font-display font-semibold text-foreground mb-2">Receive</h4>
           <p className="text-sm text-muted-foreground">
@@ -64,24 +64,24 @@ export const MessagingSlide = () => {
       {/* Features */}
       <div className="flex flex-wrap justify-center gap-4 mb-8">
         {features.map((f, idx) => (
-          <div key={idx} className="flex items-center gap-2 px-4 py-2 rounded-full bg-dark-elevated border border-border/50">
-            <f.icon className="w-4 h-4 text-neon-cyan" />
-            <span className="text-sm text-foreground">{f.label}</span>
+          <div key={idx} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-card shadow-soft border border-border/50">
+            <f.icon className="w-4 h-4 text-primary" />
+            <span className="text-sm text-foreground font-medium">{f.label}</span>
           </div>
         ))}
       </div>
       
       {/* Chat Mockup */}
       <div className="max-w-sm mx-auto">
-        <div className="rounded-2xl bg-dark-base border border-border overflow-hidden">
+        <div className="rounded-2xl bg-card shadow-medium border border-border overflow-hidden">
           {/* Header */}
-          <div className="p-4 bg-dark-elevated border-b border-border flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+          <div className="p-4 bg-muted/50 border-b border-border flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">
               <span className="text-sm font-bold text-primary">KA</span>
             </div>
             <div>
               <p className="font-display text-sm font-semibold text-foreground">@karthik_dev</p>
-              <p className="text-xs text-neon-green flex items-center gap-1">
+              <p className="text-xs text-neon-green flex items-center gap-1 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-neon-green" />
                 Online • E2EE Active
               </p>
@@ -89,19 +89,19 @@ export const MessagingSlide = () => {
           </div>
           
           {/* Messages */}
-          <div className="p-4 space-y-3">
+          <div className="p-4 space-y-3 bg-background/50">
             <div className="flex justify-end">
-              <div className="max-w-[70%] px-4 py-2 rounded-2xl rounded-br-sm bg-primary text-primary-foreground text-sm">
+              <div className="max-w-[70%] px-4 py-2.5 rounded-2xl rounded-br-sm bg-primary text-primary-foreground text-sm">
                 Hey! Testing the encrypted channel 🔐
               </div>
             </div>
             <div className="flex justify-start">
-              <div className="max-w-[70%] px-4 py-2 rounded-2xl rounded-bl-sm bg-dark-elevated text-foreground text-sm">
+              <div className="max-w-[70%] px-4 py-2.5 rounded-2xl rounded-bl-sm bg-muted text-foreground text-sm">
                 Works perfectly! No one can intercept this 💪
               </div>
             </div>
             <div className="flex justify-end">
-              <div className="max-w-[70%] px-4 py-2 rounded-2xl rounded-br-sm bg-primary text-primary-foreground text-sm flex items-center gap-2">
+              <div className="max-w-[70%] px-4 py-2.5 rounded-2xl rounded-br-sm bg-primary text-primary-foreground text-sm flex items-center gap-2">
                 <Timer className="w-3 h-3" />
                 Self-destructs in 24h
               </div>
