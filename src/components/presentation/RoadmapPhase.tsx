@@ -19,30 +19,30 @@ export const RoadmapPhase = ({
   return (
     <div className="relative flex items-start gap-4 group">
       {/* Connector line */}
-      <div className="absolute left-6 top-14 w-0.5 h-full bg-gradient-to-b from-primary/50 to-transparent -z-10" />
+      <div className="absolute left-6 top-16 w-0.5 h-full bg-gradient-to-b from-primary/30 to-transparent -z-10" />
       
       {/* Phase number circle */}
       <div className={cn(
         "flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center",
         "font-display font-bold text-lg transition-all duration-300",
         isActive 
-          ? "bg-primary text-primary-foreground glow-cyan-intense" 
-          : "bg-dark-elevated border border-border text-muted-foreground group-hover:border-primary/50"
+          ? "bg-primary text-primary-foreground shadow-medium glow-cyan" 
+          : "bg-card border-2 border-border text-muted-foreground group-hover:border-primary/50"
       )}>
         {phase}
       </div>
       
       <div className="flex-1 pb-8">
         <div className={cn(
-          "p-5 rounded-xl transition-all duration-300",
+          "p-5 rounded-2xl transition-all duration-300",
           isActive 
-            ? "bg-card border-glow" 
-            : "bg-card/50 border border-border/50 group-hover:border-primary/30"
+            ? "bg-card shadow-medium border-glow" 
+            : "bg-card shadow-soft border border-border/50 group-hover:shadow-medium group-hover:border-primary/20"
         )}>
           <div className="flex items-center gap-3 mb-2">
             <Icon className={cn(
               "w-5 h-5",
-              isActive ? "text-neon-cyan" : "text-muted-foreground"
+              isActive ? "text-primary" : "text-muted-foreground"
             )} />
             <h4 className="font-display font-semibold text-foreground">
               {title}

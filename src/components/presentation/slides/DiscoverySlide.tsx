@@ -30,7 +30,7 @@ export const DiscoverySlide = () => {
       {/* Connection Flow */}
       <div className="relative max-w-4xl mx-auto">
         {/* Connecting line */}
-        <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent hidden lg:block" />
+        <div className="absolute top-10 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent hidden lg:block" />
         
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {steps.map((step, idx) => (
@@ -40,12 +40,12 @@ export const DiscoverySlide = () => {
             >
               <div className={cn(
                 "w-20 h-20 rounded-2xl flex items-center justify-center mb-4",
-                "bg-dark-elevated border-2 border-border",
-                "hover:border-primary hover:glow-cyan transition-all duration-300",
+                "bg-card shadow-soft border border-border/50",
+                "hover:shadow-medium hover:border-primary/30 transition-all duration-300",
                 "relative z-10"
               )}>
-                <step.icon className="w-10 h-10 text-neon-cyan" />
-                <span className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
+                <step.icon className="w-10 h-10 text-primary" />
+                <span className="absolute -top-2 -left-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow-soft">
                   {idx + 1}
                 </span>
               </div>
@@ -58,9 +58,9 @@ export const DiscoverySlide = () => {
       
       {/* Accept Alliance Mockup */}
       <div className="mt-12 max-w-sm mx-auto">
-        <div className="p-6 rounded-2xl bg-card border-glow text-center">
-          <div className="w-16 h-16 rounded-full bg-dark-elevated border border-primary/50 mx-auto mb-4 flex items-center justify-center">
-            <Users className="w-8 h-8 text-neon-cyan" />
+        <div className="p-6 rounded-2xl bg-card shadow-medium border-glow text-center">
+          <div className="w-16 h-16 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
+            <Users className="w-8 h-8 text-primary" />
           </div>
           <h4 className="font-display text-lg font-semibold text-foreground mb-2">
             @crypto_warrior
@@ -69,11 +69,11 @@ export const DiscoverySlide = () => {
             wants to form an alliance
           </p>
           <div className="flex gap-3 justify-center">
-            <button className="px-6 py-2 rounded-lg bg-neon-green/20 text-neon-green border border-neon-green/30 font-display text-sm font-semibold hover:bg-neon-green/30 transition-colors">
+            <button className="px-6 py-2.5 rounded-xl bg-neon-green/10 text-neon-green border border-neon-green/20 font-display text-sm font-semibold hover:bg-neon-green/15 transition-colors">
               <Check className="w-4 h-4 inline mr-2" />
               Accept
             </button>
-            <button className="px-6 py-2 rounded-lg bg-destructive/20 text-destructive border border-destructive/30 font-display text-sm font-semibold hover:bg-destructive/30 transition-colors">
+            <button className="px-6 py-2.5 rounded-xl bg-destructive/10 text-destructive border border-destructive/20 font-display text-sm font-semibold hover:bg-destructive/15 transition-colors">
               Decline
             </button>
           </div>

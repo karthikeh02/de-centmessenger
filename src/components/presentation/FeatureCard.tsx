@@ -22,17 +22,24 @@ export const FeatureCard = ({
     green: "text-neon-green",
   };
 
+  const bgColors = {
+    cyan: "bg-neon-cyan/10",
+    purple: "bg-neon-purple/10", 
+    green: "bg-neon-green/10",
+  };
+
   return (
     <div className={cn(
-      "group relative p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50",
-      "hover:border-primary/50 hover:glow-cyan transition-all duration-300",
+      "group relative p-6 rounded-2xl bg-card shadow-soft border border-border/50",
+      "hover:shadow-medium hover:border-primary/30 transition-all duration-300",
       className
     )}>
       <div className={cn(
-        "w-12 h-12 rounded-lg bg-dark-elevated flex items-center justify-center mb-4",
+        "w-14 h-14 rounded-xl flex items-center justify-center mb-4",
+        bgColors[iconColor],
         "group-hover:scale-110 transition-transform duration-300"
       )}>
-        <Icon className={cn("w-6 h-6", iconColors[iconColor])} />
+        <Icon className={cn("w-7 h-7", iconColors[iconColor])} />
       </div>
       <h3 className="font-display text-lg font-semibold text-foreground mb-2">
         {title}

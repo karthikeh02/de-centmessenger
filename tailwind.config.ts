@@ -57,10 +57,10 @@ export default {
           green: "hsl(var(--neon-green))",
           blue: "hsl(var(--neon-blue))",
         },
-        dark: {
-          base: "hsl(var(--dark-base))",
-          card: "hsl(var(--dark-card))",
-          elevated: "hsl(var(--dark-elevated))",
+        light: {
+          base: "hsl(var(--light-base))",
+          card: "hsl(var(--light-card))",
+          elevated: "hsl(var(--light-elevated))",
         },
       },
       borderRadius: {

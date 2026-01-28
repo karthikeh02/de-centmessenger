@@ -67,7 +67,7 @@ const Index = () => {
     let lastWheelTime = 0;
     const handleWheel = (e: WheelEvent) => {
       const now = Date.now();
-      if (now - lastWheelTime < 800) return; // Debounce
+      if (now - lastWheelTime < 800) return;
       lastWheelTime = now;
 
       if (e.deltaY > 0) {
@@ -108,10 +108,10 @@ const Index = () => {
           onClick={prevSlide}
           disabled={currentSlide === 0}
           className={cn(
-            "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300",
+            "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-soft",
             currentSlide === 0
-              ? "bg-muted/50 text-muted-foreground cursor-not-allowed"
-              : "bg-card border border-border hover:border-primary hover:glow-cyan text-foreground"
+              ? "bg-muted text-muted-foreground cursor-not-allowed"
+              : "bg-card border border-border hover:border-primary hover:shadow-medium text-foreground"
           )}
           aria-label="Previous slide"
         >
@@ -121,10 +121,10 @@ const Index = () => {
           onClick={nextSlide}
           disabled={currentSlide === slides.length - 1}
           className={cn(
-            "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300",
+            "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-soft",
             currentSlide === slides.length - 1
-              ? "bg-muted/50 text-muted-foreground cursor-not-allowed"
-              : "bg-card border border-border hover:border-primary hover:glow-cyan text-foreground"
+              ? "bg-muted text-muted-foreground cursor-not-allowed"
+              : "bg-card border border-border hover:border-primary hover:shadow-medium text-foreground"
           )}
           aria-label="Next slide"
         >
@@ -134,15 +134,15 @@ const Index = () => {
 
       {/* Slide Counter */}
       <div className="fixed bottom-8 right-8 z-50 font-display text-sm text-muted-foreground">
-        <span className="text-primary">{currentSlide + 1}</span>
+        <span className="text-primary font-semibold">{currentSlide + 1}</span>
         <span> / {slides.length}</span>
       </div>
 
       {/* Keyboard hints */}
       <div className="fixed bottom-8 left-8 z-50 hidden lg:flex items-center gap-2 text-xs text-muted-foreground">
-        <span className="px-2 py-1 rounded bg-muted/30">↑↓</span>
+        <span className="px-2 py-1 rounded bg-muted font-medium">↑↓</span>
         <span>or</span>
-        <span className="px-2 py-1 rounded bg-muted/30">Space</span>
+        <span className="px-2 py-1 rounded bg-muted font-medium">Space</span>
         <span>to navigate</span>
       </div>
     </div>

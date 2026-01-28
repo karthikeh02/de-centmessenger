@@ -71,8 +71,8 @@ export const VisionSlide = () => {
       </div>
       
       {/* Target Audience */}
-      <div className="text-center mt-8 p-6 rounded-xl bg-card/50 border border-border/50">
-        <p className="text-muted-foreground mb-3">Target Audience</p>
+      <div className="text-center mt-8 p-6 rounded-2xl bg-card shadow-soft border border-border/50">
+        <p className="text-muted-foreground mb-3 font-medium">Target Audience</p>
         <p className="text-lg text-foreground">
           Privacy warriors, crypto natives, activists, professionals, and{" "}
           <span className="text-primary font-semibold">anyone who hates being watched</span>.
@@ -80,8 +80,8 @@ export const VisionSlide = () => {
       </div>
       
       {/* Quote */}
-      <blockquote className="mt-8 text-center">
-        <p className="font-display text-2xl md:text-3xl text-gradient italic">
+      <blockquote className="mt-10 text-center">
+        <p className="font-display text-2xl md:text-3xl text-gradient italic font-semibold">
           "In a world of surveillance, De Messenger is freedom."
         </p>
       </blockquote>

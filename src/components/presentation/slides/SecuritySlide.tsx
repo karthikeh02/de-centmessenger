@@ -55,11 +55,11 @@ const comparisonData = [
 ];
 
 const defenses = [
-  { icon: Shield, label: "E2EE Everywhere – Signal Protocol (battle-tested)" },
-  { icon: Server, label: "No Central Storage – Messages never touch servers" },
-  { icon: Gavel, label: "Gov-Proof Design – Even seizure yields encrypted garbage" },
-  { icon: Eye, label: "Zero-Knowledge Discovery – Future upgrade possible" },
-  { icon: Code, label: "Open-Source Potential – Community auditing" },
+  { icon: Shield, label: "E2EE Everywhere – Signal Protocol" },
+  { icon: Server, label: "No Central Storage" },
+  { icon: Gavel, label: "Gov-Proof Design" },
+  { icon: Eye, label: "Zero-Knowledge Discovery" },
+  { icon: Code, label: "Open-Source Potential" },
 ];
 
 export const SecuritySlide = () => {
@@ -72,7 +72,7 @@ export const SecuritySlide = () => {
       </SlideTitle>
       
       <p className="text-center text-xl font-display text-foreground/80 mb-8">
-        The <span className="text-neon-cyan">Ultimate</span> Fortress
+        The <span className="text-primary font-semibold">Ultimate</span> Fortress
       </p>
       
       {/* Key Defenses */}
@@ -80,27 +80,20 @@ export const SecuritySlide = () => {
         {defenses.map((def, idx) => (
           <div 
             key={idx}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-dark-elevated border border-border/50"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-card shadow-soft border border-border/50"
           >
-            <def.icon className="w-4 h-4 text-neon-cyan" />
-            <span className="text-xs text-foreground">{def.label}</span>
+            <def.icon className="w-4 h-4 text-primary" />
+            <span className="text-xs text-foreground font-medium">{def.label}</span>
           </div>
         ))}
       </div>
       
       {/* Comparison Table */}
-      <div className="max-w-4xl mx-auto p-6 rounded-2xl bg-card/50 border border-border/50">
+      <div className="max-w-4xl mx-auto p-6 rounded-2xl bg-card shadow-soft border border-border/50">
         <h3 className="font-display text-lg font-semibold text-center mb-6 text-foreground">
           De Messenger vs The Competition
         </h3>
         <ComparisonTable data={comparisonData} />
-      </div>
-      
-      {/* Shield visual */}
-      <div className="mt-8 text-center">
-        <p className="text-sm text-muted-foreground">
-          🛡️ Giant shield blocking arrows labeled <span className="text-destructive">"Gov"</span>, <span className="text-destructive">"Hackers"</span>, <span className="text-destructive">"Big Tech"</span>
-        </p>
       </div>
     </SlideContainer>
   );
