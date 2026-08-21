@@ -1,3 +1,4 @@
+import { Buffer } from 'buffer';
 import { ethers } from 'ethers';
 // @ts-ignore - noble v2 uses .js extensions in exports
 import { sha256 } from '@noble/hashes/sha2';
@@ -8,18 +9,19 @@ import type { DerivedKeys } from '../../types/identity';
 
 /**
  * Derives all cryptographic keys from a BIP-39 seed.
- * One mnemonic → identity keys + ETH wallet + peer ID.
+ * One mnemonic -> identity keys + ETH wallet + peer ID.
  */
 export const KeyDerivation = {
-  /**
-   * Derive all keys from a mnemonic phrase.
-   */
   async deriveAll(mnemonic: string): Promise<DerivedKeys> {
+    // Ensure Buffer is available for ethers
+    if (typeof globalThis.Buffer === 'undefined') {
+      (globalThis as any).Buffer = Buffer;
+    }
+
     // Derive ETH wallet using BIP-44 standard path
     const hdNode = ethers.HDNodeWallet.fromPhrase(mnemonic, undefined, ETH_DERIVATION_PATH);
 
-    // Derive identity key pair from seed (different derivation path concept)
-    // We hash the seed with a domain separator to get identity keys
+    // Derive identity key pair from seed
     const seedBytes = ethers.getBytes(hdNode.privateKey);
     const identityPrivateKey = sha256(
       new Uint8Array([...new TextEncoder().encode('de-messenger-identity:'), ...seedBytes]),
@@ -43,10 +45,10 @@ export const KeyDerivation = {
     };
   },
 
-  /**
-   * Derive only the ETH address (for display without exposing private key).
-   */
   getEthAddress(mnemonic: string): string {
+    if (typeof globalThis.Buffer === 'undefined') {
+      (globalThis as any).Buffer = Buffer;
+    }
     const hdNode = ethers.HDNodeWallet.fromPhrase(mnemonic, undefined, ETH_DERIVATION_PATH);
     return hdNode.address;
   },

@@ -21,15 +21,18 @@ export function CreateUsernameScreen({ navigation }: Props) {
 
     setLoading(true);
     try {
+      console.log('[CreateUsername] Generating identity for:', username);
       const result = await IdentityManager.createNew(username);
+      console.log('[CreateUsername] Identity generated, ETH:', result.keys.ethAddress);
       setOnboarding({
         username,
         mnemonic: result.mnemonic,
         ethAddress: result.keys.ethAddress,
       });
       navigation.navigate('Mnemonic');
-    } catch (error) {
-      Alert.alert('Error', 'Failed to generate identity. Please try again.');
+    } catch (error: any) {
+      console.log('[CreateUsername] ERROR:', error?.message, error);
+      Alert.alert('Error', 'Failed to generate identity: ' + (error?.message || 'Unknown'));
     } finally {
       setLoading(false);
     }

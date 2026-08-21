@@ -1,5 +1,7 @@
 import { MnemonicGenerator } from './MnemonicGenerator';
 import { KeyDerivation } from './KeyDerivation';
+// @ts-ignore
+import { bytesToHex } from '@noble/hashes/utils';
 import type { UserIdentity, DerivedKeys } from '../../types/identity';
 
 export interface CreateIdentityResult {
@@ -13,16 +15,13 @@ export interface CreateIdentityResult {
  * Orchestrates mnemonic generation, key derivation, and identity creation.
  */
 export const IdentityManager = {
-  /**
-   * Create a brand new identity (during onboarding).
-   */
   async createNew(username: string): Promise<CreateIdentityResult> {
     const mnemonic = MnemonicGenerator.generate();
     const keys = await KeyDerivation.deriveAll(mnemonic);
 
     const identity: UserIdentity = {
       username,
-      publicKey: Buffer.from(keys.identityKeyPair.publicKey).toString('hex'),
+      publicKey: bytesToHex(keys.identityKeyPair.publicKey),
       peerId: keys.peerId,
       ethAddress: keys.ethAddress,
       createdAt: Date.now(),
@@ -31,9 +30,6 @@ export const IdentityManager = {
     return { mnemonic, keys, identity };
   },
 
-  /**
-   * Restore identity from an existing mnemonic (account recovery).
-   */
   async restoreFromMnemonic(mnemonic: string, username: string): Promise<CreateIdentityResult> {
     if (!MnemonicGenerator.validate(mnemonic)) {
       throw new Error('Invalid mnemonic phrase');
@@ -43,7 +39,7 @@ export const IdentityManager = {
 
     const identity: UserIdentity = {
       username,
-      publicKey: Buffer.from(keys.identityKeyPair.publicKey).toString('hex'),
+      publicKey: bytesToHex(keys.identityKeyPair.publicKey),
       peerId: keys.peerId,
       ethAddress: keys.ethAddress,
       createdAt: Date.now(),

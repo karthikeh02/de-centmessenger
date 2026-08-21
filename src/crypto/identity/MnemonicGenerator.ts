@@ -1,3 +1,4 @@
+import { Buffer } from 'buffer';
 import * as bip39 from 'bip39';
 import { MNEMONIC_STRENGTH } from '../../utils/constants';
 
@@ -6,38 +7,40 @@ import { MNEMONIC_STRENGTH } from '../../utils/constants';
  * A mnemonic is the user's master key - everything derives from it.
  */
 export const MnemonicGenerator = {
-  /**
-   * Generate a new 12-word mnemonic phrase (128 bits of entropy).
-   */
   generate(): string {
+    // Ensure Buffer is available for bip39
+    if (typeof globalThis.Buffer === 'undefined') {
+      (globalThis as any).Buffer = Buffer;
+    }
     return bip39.generateMnemonic(MNEMONIC_STRENGTH);
   },
 
-  /**
-   * Validate a mnemonic phrase.
-   */
   validate(mnemonic: string): boolean {
+    if (typeof globalThis.Buffer === 'undefined') {
+      (globalThis as any).Buffer = Buffer;
+    }
     return bip39.validateMnemonic(mnemonic);
   },
 
-  /**
-   * Convert mnemonic to seed bytes (for key derivation).
-   */
-  async toSeed(mnemonic: string): Promise<Buffer> {
-    return bip39.mnemonicToSeed(mnemonic);
+  async toSeed(mnemonic: string): Promise<Uint8Array> {
+    if (typeof globalThis.Buffer === 'undefined') {
+      (globalThis as any).Buffer = Buffer;
+    }
+    const buf = await bip39.mnemonicToSeed(mnemonic);
+    return new Uint8Array(buf);
   },
 
-  /**
-   * Convert mnemonic to entropy hex (for compact storage).
-   */
   toEntropy(mnemonic: string): string {
+    if (typeof globalThis.Buffer === 'undefined') {
+      (globalThis as any).Buffer = Buffer;
+    }
     return bip39.mnemonicToEntropy(mnemonic);
   },
 
-  /**
-   * Restore mnemonic from entropy hex.
-   */
   fromEntropy(entropy: string): string {
+    if (typeof globalThis.Buffer === 'undefined') {
+      (globalThis as any).Buffer = Buffer;
+    }
     return bip39.entropyToMnemonic(entropy);
   },
 };

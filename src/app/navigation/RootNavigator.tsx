@@ -18,15 +18,19 @@ export function RootNavigator() {
 
   async function checkAuthState() {
     try {
+      console.log('[RootNav] Checking auth state...');
       const hasPin = await PinManager.isSetup();
       const hasIdentity = await SecureStore.has(STORAGE_KEYS.IDENTITY_PUBLIC_KEY);
+      console.log('[RootNav] hasPin:', hasPin, 'hasIdentity:', hasIdentity);
 
       if (hasPin && hasIdentity) {
         setStatus('locked');
       } else {
         setStatus('onboarding');
       }
-    } catch {
+      console.log('[RootNav] Status set to:', hasPin && hasIdentity ? 'locked' : 'onboarding');
+    } catch (error) {
+      console.log('[RootNav] Error checking auth:', error);
       setStatus('onboarding');
     }
   }
